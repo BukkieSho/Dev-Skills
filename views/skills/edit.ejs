@@ -7,6 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="/skills" method="POST">
+        <label>Skill Name:
+            <input type="text" name='Name'>
+        </label><br>
+        <label>Stack:
+            <input type="text" name='Tech Stack'>
+        </label><br>
+        <label>Experience Level
+            <select name='ExpertLevel'>
+                <option value="Noob">Noob</option>
+                <option value="Getting-There">Getting-There</option>
+                <option value="Guru">Guru</option>
+            </select>
+        </label><br>
+        <button type="submit">Add Skill</button>
+    </form>
 </body>
 </html>
