@@ -1,0 +1,11 @@
+body {
+    color: black;
+    background-color: purple;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 12px;
+    text-shadow: 4px 4px 4px grey;
+    text-align: center;
+    background-image:url("https://media.giphy.com/media/3oFzmi1zNabEmLuE6I/giphy.gif");
+    background-size: cover;
+}
+

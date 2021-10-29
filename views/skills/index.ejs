@@ -8,7 +8,14 @@
   <title><%= title %></title>
 </head>
 <body>
+  <h1>Skill Check!</h1>
   <h1><%= title %></h1>
+  <% skills.forEach(skill => { %>
+    <h2>
+      <a href="/skills/<%= skill._id %>"><%= skill.name %> </a>"
+      -
+      <%= skill.ExpertLevel ? 'keep trying' : 'what is an elon musk' %></h2>
+  <% }) %>
   <a href="/skills">Skills Gotten</a>
   <a href="/skills/new">Gain New SKill</a>
 </body>
