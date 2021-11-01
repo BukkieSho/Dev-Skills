@@ -6,7 +6,7 @@
     <% } else { %>
         <h2>Skills #<%= skill._id %></h2>
         <h3><%= skill.text %></h3>
-        <p>Complete: <%= skill.done ? 'Yes' : 'No' %></p>
+        <p>Complete: <%= skill.unit ? 'Yes' : 'No' %></p>
     <% } %>
-            <a href="/skills">Go back</a>
-<% include ("../partials/footer.ejs") %> 
+            <a href='/skills'>Go back</a>
+<% include("../partials/footer.ejs") %> 
