@@ -42,7 +42,7 @@ function findByIdAndDelete(id, callback) {
 try { 
     const idx = skills.findIndex(skill => skill._id == parseInt(id))
     const deletedSkill = skills.splice(idx, 1)
-    if (!deletedSkill.length ) throw new Error ('No todo was deleted')
+    if (!deletedSkill.length ) throw new Error ('No skill was deleted')
     return callback(null, deletedSkill[0])
 } catch(error) {
     return callback(error, null)  

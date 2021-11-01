@@ -6,8 +6,7 @@
   <ul>
     <% skills.forEach(skill => { %>
     <li>
-      <form action="/skills/<%= skill._id %>?_method=DELETE" class="delete-form"
-        method="POST">
+      <form action="/skills/<%= skill._id %>?_method=DELETE" class="delete-form" method="POST">
         <button type="submit">X</button>
       </form>
     </li>
@@ -16,5 +15,4 @@
   </ul>
   <a href="/skills">Skills Gotten</a>
   <a href="/skills/new">Gain New Skill</a>
-  <a href="/">Go Back</a>
 <% include("../partials/footer.ejs") %> 

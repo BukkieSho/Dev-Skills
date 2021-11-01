@@ -1,19 +1,11 @@
 <% include("../partials/header.ejs") %> 
 <h1>Skills</h1>
-    <form action="/skills" method="POST">
-        <label>Skill Name:
-            <input type="text" name='Name'>
-        </label><br>
-        <label>Stack:
-            <input type="text" name='Tech Stack'>
-        </label><br>
-        <label>Experience Level
-            <select name='ExpertLevel'>
-                <option value="Noob">Noob</option>
-                <option value="Getting-There">Getting-There</option>
-                <option value="Guru">Guru</option>
-            </select>
-        </label><br>
-        <button type="submit">Add Skill</button>
-    </form>
+    <% if(error) { %> 
+        <h2><%= error %></h2>
+    <% ] else { %>
+        <h2>Skill Number<%= skill._id %> </h2>
+        <h3><%= skill.text %> </h3>
+        <p>Complete: <%= skill.done ? 'Expert!' : 'Keep Learning' %></p>
+    <% } %> 
+            <a href="/skills">Go Home</a>
 <% include("../partials/footer.ejs") %> 

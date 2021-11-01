@@ -1,12 +1,7 @@
-<% include("../partials/header.ejs") %> 
-    <h1>Enter a New Skill</h1>
+<%- include("../partials/header.ejs") %> 
+<h1>New Skillz</h1>
     <form action="/skills" method="POST" autocomplete="off">
-        <label>Skill Name:
-            <input type="text" name="text">
-        </label><br>
-        <label>Lesson:
-            <input type="text" name="unit">
-        </label><br>
-        <button type="submit">Add Skill</button>
+        <input type="text" name="text">
+        <button type="submit">Save Skill</button>
     </form>
-<% include("../partials/footer.ejs") %> 
+<%- include("../partials/footer.ejs") %> 
