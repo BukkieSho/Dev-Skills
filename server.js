@@ -1,10 +1,10 @@
-import "dotenv/config.js"
 import createError from 'http-errors'
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
+import methodOverride from 'method-override'
 import('./config/database.js')
 
 // import routers
@@ -22,6 +22,14 @@ app.set(
 app.set('view engine', 'ejs')
 
 // middleware
+app.use(methodOverride('_method'))
+app.use(function(req, res, next) {
+  console.log('Hello Skills Work!');
+  req.time = new Date().toLocaleDateString();
+  next();
+});
+
+
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -31,7 +39,6 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
-
 // mounted routers
 app.use('/', indexRouter)
 app.use('/skills', skillsRouter)

@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <title><%= title %></title>
-</head>
-<body>
+<title><%= title %></title>
+<% include("../partials/header.ejs") %> 
   <h1>Skill Check!</h1>
   <h1><%= title %></h1>
   <% skills.forEach(skill => { %>
+    <li>
+      <form action="/todos/<%= skills._id %>?_method=DELETE"
+        class="delete-form"
+        method="POST">
+        <button type="submit">X</button>
+      </form>
+    </li>
+    <a href="/todos/<%= skills._id %>"><%= skills.text %></a>
     <h2>
       <%= skill.ExpertLevel ? 'keep trying' : 'what is an elon musk' %></h2>
   <% }) %>
   <a href="/skills">Skills Gotten</a>
   <a href="/skills/new">Gain New SKill</a>
-</body>
-</html>
+<% include("../partials/footer.ejs") %> 

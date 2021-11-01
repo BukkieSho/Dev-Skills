@@ -16,7 +16,8 @@ function index(req, res) {
     Skill.find({})
     .then(skills => {
         res.render('skills/index', {
-            skills
+            skills: skills,
+            time: req.time,
         })
     })
 }
