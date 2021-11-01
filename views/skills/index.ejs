@@ -1,18 +1,20 @@
 <% include("../partials/header.ejs") %> 
-  <h1>Skill Check!</h1>
   <h1><%= title %></h1>
-  <% skills.forEach(skill => { %>
+  <% if(error) { %> 
+    <h2><%= error %> </h2>
+  <% } %> 
+  <ul>
+    <% skills.forEach(skill => { %>
     <li>
-      <form action="/todos/<%= skills._id %>?_method=DELETE"
-        class="delete-form"
+      <form action="/skills/<%= skill._id %>?_method=DELETE" class="delete-form"
         method="POST">
         <button type="submit">X</button>
       </form>
     </li>
-    <a href="/todos/<%= skills._id %>"><%= skills.text %></a>
-    <h2>
-      <%= skill.ExpertLevel ? 'keep trying' : 'what is an elon musk' %></h2>
+    <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
   <% }) %>
+  </ul>
   <a href="/skills">Skills Gotten</a>
-  <a href="/skills/new">Gain New SKill</a>
+  <a href="/skills/new">Gain New Skill</a>
+  <a href="/">Go Back</a>
 <% include("../partials/footer.ejs") %> 

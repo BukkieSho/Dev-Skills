@@ -1,7 +1,7 @@
 const skills = [
-    {text: 'Interest', done: true, _id: 12456},
-    {text: 'ExpertLevel', done: false, _id: 12904},
-    {text: 'TechStack', done: false, _id: 13608},
+    {text: 'JavaScript', unit: 1, _id: 12456},
+    {text: 'HTML', unit: 2, _id: 13608},
+    {text: 'Mongoose', unit: 2, _id: 12904},
 ]
 
 const find = (conditions, callback) => {

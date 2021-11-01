@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import methodOverride from 'method-override'
-import('./config/database.js')
 
 // import routers
 import { router as indexRouter } from './routes/index.js'

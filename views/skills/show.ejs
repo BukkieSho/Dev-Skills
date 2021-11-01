@@ -1,9 +1,11 @@
 <% include("../partials/header.ejs") %> 
 <h1>Skill Info</h1>
-<h2>
-        Skill Level: <%= skill.name %>
-        -
-        <%= skill.ExpertLevel ? 'keep trying' : 'what is an elon musk' %>
-    </h2>
+<% if(error) { %> 
+    <h2><%= 'No Skill Found' %> </h2>
+<% } else { %>
+    <h2><%= skill.text %> </h2>
+    <h3><%= skill.unit %> </h3>
+    <h3>Skill Number<%= skill._id %></h3>
+<% } %>
     <a href="/skills">Back to Home</a>
 <% include ("../partials/footer.ejs") %> 
