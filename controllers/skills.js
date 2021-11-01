@@ -1,32 +1,35 @@
-import { Skill } from '../models/skill.js'
+import * as skillsDb from "../data/skills-db.js"
 
 function newSkill(req, res) {
-    res.render('/skills/new')
+    res.render('/skills/new', {
+        title: "New Skill"
+    })
 }
 
 function create (req, res) {
     req.body.ExpertLevel = !!req.body.ExpertLevel
-    Skill.create(req.body)
-    .then(() => {
+    skillsDb.create(req.body, function(error, skill) {
         res.redirect('/skills')
     })
 }
 
 function index(req, res) {
-    Skill.find({})
-    .then(skills => {
+    skillsDb.find({}, function(error,skills) {
         res.render('skills/index', {
-            skills: skills,
+            skills,
+            error,
             time: req.time,
+            title: "Skillset"
         })
     })
 }
 
 function show(req, res) {
-    Skill.findById(req.params.id)
-    .then(taco => {
+    skillsDb.findById(req.params.id, function(error, skill) {
         res.render('/skills/show', {
-            skills
+            skills,
+            error,
+            title: "Skill Details"
         })
     })
 }
