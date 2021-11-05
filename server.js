@@ -4,7 +4,6 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
-import methodOverride from 'method-override'
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
@@ -21,14 +20,6 @@ app.set(
 app.set('view engine', 'ejs')
 
 // middleware
-app.use(methodOverride('_method'))
-app.use(function(req, res, next) {
-  console.log('Hello Skills Work!');
-  req.time = new Date().toLocaleDateString();
-  next();
-});
-
-
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -41,6 +32,13 @@ app.use(
 // mounted routers
 app.use('/', indexRouter)
 app.use('/skills', skillsRouter)
+
+
+app.use(function(req, res, next) {
+  console.log('Hello Skills Work!');
+  req.time = new Date().toLocaleDateString();
+  next();
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

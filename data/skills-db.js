@@ -20,10 +20,10 @@ try {
 }
 }
 
-const findById = (id, callback) =>{
+const findById = (id, callback) => {
     try {
-        const skill = skills.find(skill => skill._id === parseInt(id))
-        if (!skill) throw new Error ('No skill was found')
+        const skill = skills.find(skill => skills._id === parseInt(id))
+        if (!skills) throw new Error ('No skill was found')
         return callback(null, skill)
     } catch (error) {
     console.log(error)
@@ -32,10 +32,9 @@ const findById = (id, callback) =>{
 }
 
 function create(skill, callback) {
-    skill._id = Date.now() % 1000000
-    skill.done = false
-    skills.push(skill)
-    return callback(null, skill)
+    skills._id = Date.now() % 1000000
+    skills.push(skills)
+    return callback(null, skills)
 }
 
 function findByIdAndDelete(id, callback) {
@@ -53,5 +52,5 @@ export {
     find,
 findById,
 create,
-findByIdAndDelete,
+findByIdAndDelete
 }
